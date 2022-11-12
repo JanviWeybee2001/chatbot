@@ -272,6 +272,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.WriteLine("Ending your Chat");
                     }
                 }
+                Console.WriteLine("Close converation with chatbot say 'Bye'");
                 sayBye = Console.ReadLine();
             }
         }
