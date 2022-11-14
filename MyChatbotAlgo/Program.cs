@@ -230,7 +230,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     {
                         if (quetionsBanks[i].gotoNextQuetion != 0)
                         {
-                            i = quetionsBanks[i].gotoNextQuetion - 1;
+                            i = quetionsBanks[i].gotoNextQuetion - 2;
                         }
                     }
                     else if (quetionsBanks[i].quetionType == "Quetion")
@@ -246,7 +246,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         }
                         if (quetionsBanks[i].gotoNextQuetion != 0)
                         {
-                            i = quetionsBanks[i].gotoNextQuetion - 1;
+                            i = quetionsBanks[i].gotoNextQuetion - 2;
                         }
                     }
                     else if (quetionsBanks[i].quetionType == "SingleChoice")
@@ -262,9 +262,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         int replyId = optionsOfChoices.Where(option => option.OptionsDescription.ToLower() == reply.ToLower() && option.quetionId == quetionsBanks[i].id).Select(id => id.optionId).FirstOrDefault();
                         userReplies.Add(new userReply() { quetionId = quetionsBanks[i].id, userReplys = reply });
                         int goTo = optionsOfChoices.Where(option => option.optionId == replyId).Select(gotonext => gotonext.gotoNextQuetionId).FirstOrDefault();
-                        if (quetionsBanks[i].gotoNextQuetion != 0)
+                        if (goTo != 0)
                         {
-                            i = quetionsBanks[i].gotoNextQuetion - 1;
+                            i = goTo - 2;
                         }
                     }
                     else
